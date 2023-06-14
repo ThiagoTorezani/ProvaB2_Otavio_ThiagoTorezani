@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validador de senha</title>
+    <script>
+        function validarSenha() {
+          var senha = document.getElementById("senha").value;
+
+          //Com essas funções quando uma pessoa inserir uma senha, essa senha será analisada em cada campo. Exemplo: a pessoa escreve essa senha (abcdefg), o primeiro campo será ativado e irá dizer que tem que haver 8 caracteres no mínimo, e assim por diante.
+          
+          //Aqui irá analisar se tem o número mínimo de caracteres na senha
+          if (senha.length < 8) {
+            alert("Senha inválida. A sua senha necessita de haver ao menos 8 caracteres.");
+            return false;
+          }
+          
+          //Aqui irá analisar se tem ao menos uma letra maiúscula na senha
+          if (!/[A-Z]/.test(senha)) {
+            alert("Senha inválida. A sua senha necessita de haver ao menos uma letra maiúscula.");
+            return false;
+          }
+          
+          //Aqui irá analisar se tem ao menos uma letra minúscula na senha
+          if (!/[a-z]/.test(senha)) {
+            alert("Senha inválida. A sua senha necessita de haver ao menos uma letra minúscula.");
+            return false;
+          }
+          
+          //Aqui irá analisar se tem ao menos um número na senha
+          if (!/[0-9]/.test(senha)) {
+            alert("Senha inválida. A sua senha necessita de haver ao menos um número.");
+            return false;
+          }
+          
+          //Se tudo estiver correto a senha será validada
+          return true;
+        }
+      </script>
+</head>
+<body>
+
+    //Aqui irá fazer um local para inserir a senha e clicar no botão(Entrar) para poder saber se a senha foi validada.
+    <form onsubmit="return validarSenha()">
+        <h1 for="senha">Senha:</h1>
+        <input type="password" id="senha" name="senha">
+        <input type="submit" value="Entrar">
+    </form>
+</body>
+</html>

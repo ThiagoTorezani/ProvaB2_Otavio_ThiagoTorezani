@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Números primos entre 1 e 1000</title>
+</head>
+<body>
+    <h1>Lista de números primos entre 1 e 1000</h1>
+    <h3 id="lista-num-primos"></h3>
+
+    <script>
+
+        //Aqui irá certificar se o número é primo ou não
+        const isPrime = (num) => {
+            for (let i = 2; i < num; i++)
+                if (num % i === 0) {
+                    return false;
+                }
+            return num > 1;
+        }
+
+        //Aqui lista todos os números primos entre 1 e 1000, e deixa com pontos na frente
+        function listPrimes() {
+            const primosList = document.getElementById("lista-num-primos");
+
+            for (let i = 1; i <= 1000; i++) {
+                if (isPrime(i)) {
+                    const li = document.createElement("li");
+                    li.textContent = i;
+                    primosList.appendChild(li);
+                }
+            }
+        }
+
+        //Aqui irá pegar a função para listar todos os números primos entre 1 e 1000
+        listPrimes();
+    </script>
+</body>
+</html>
